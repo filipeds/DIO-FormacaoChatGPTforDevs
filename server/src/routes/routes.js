@@ -3,6 +3,6 @@ const promptController = require("../controllers/prompt-controller")
 
 const routes = express.Router()
 
-routes.post('api/prompt', promptController.sentText)
+routes.post('/api/prompt', promptController.sentText)
 
 module.exports = routes

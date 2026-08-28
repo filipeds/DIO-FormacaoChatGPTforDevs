@@ -18,7 +18,7 @@ module.exports ={
         } catch (error) {
             return res.status(400).json({
                 success: false,
-                error: error.response ? error.response : "existe um erro no servidor"
+                error: error.response ? error.response.data : "existe um erro no servidor"
             });
         }
     }

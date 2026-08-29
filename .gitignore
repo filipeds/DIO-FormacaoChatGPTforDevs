@@ -1,2 +1,7 @@
 node_modules/
 server/.env
+__pycache__/
+*.pyc
+
+# Transcrições das aulas (material de estudo local, não versionado)
+transcricoes/

@@ -1,82 +1,107 @@
-# Gerando Artigos com Inteligência Artificial
+# DIO — Formação ChatGPT for Devs
 
-Desafio de projeto do bootcamp **DIO — Formação ChatGPT for Devs**. A proposta é usar
-ferramentas de IA generativa (texto e imagem) para produzir um artigo técnico completo,
-documentando cada etapa do processo: da definição do assunto até o call to action final.
+Desafios de projeto da [DIO](https://www.dio.me) sobre uso de IA generativa na
+produção de conteúdo técnico. Dois desafios, o mesmo tema, formatos diferentes:
+um **artigo** e um **e-book** sobre IA agêntica na geração de código.
 
-Este repositório reúne o artigo produzido, os prompts utilizados em cada etapa e a
-imagem de capa gerada.
-
----
-
-## Sobre o artigo
-
-**Tema:** Claude e o uso de IA na geração de código e como acelerador de desenvolvedores.
-
-O artigo explica como o Claude, da Anthropic, saiu do uso via chat e passou a atuar como
-agente dentro do fluxo de trabalho de times de engenharia — lendo repositórios, editando
-arquivos e executando comandos — e como isso encurta o caminho entre a ideia e o código
-funcional, sem substituir o julgamento técnico do desenvolvedor.
-
-📄 **Leia o artigo:** [`artigo/claude-acelerador-de-devs.md`](./artigo/claude-acelerador-de-devs.md)
-
-> O artigo não foi publicado em plataforma externa — ele vive neste repositório.
-
-![Capa do artigo](./imagens/capa-claude-devs.png)
+Em ambos, a IA foi usada como **aceleradora** de um conteúdo que já existia — e o
+resultado passou por edição humana antes de virar entregável.
 
 ---
 
-## Repositório de referência
+## 📕 E-book — *O Dev Aumentado*
 
-Este projeto foi inspirado (forkado) no repositório do expert Felipe Aguiar:
+**Claude Code na prática: da ideia ao commit** · 22 páginas
 
-👉 https://github.com/felipeAguiarCode/prompts-for-article-generate-by-ia
+> **[Ler o e-book (PDF)](./ebook/o-dev-aumentado.pdf)** · [Sobre o e-book](./ebook/README.md)
 
----
+![Capa do e-book](./ebook/capa-ebook.png)
 
-## Checklist do artigo
+A diferença entre uma IA que sugere e uma IA que executa — e o que muda no dia a
+dia de quem programa quando ela ganha acesso ao repositório.
 
-- [x] Definir o assunto
-- [x] Título chamativo (headline)
-- [x] Imagem de capa chamativa
-- [x] Blocos do artigo
-- [x] Call to action no final do post
+| # | Capítulo | Sobre |
+| --- | --- | --- |
+| 01 | Da sugestão à ação | O que muda quando a IA tem mãos |
+| 02 | Onboarding | Entendendo uma base que você nunca viu |
+| 03 | Ponta a ponta | Funcionalidade completa, com testes |
+| 04 | Debugging | Da mensagem de erro à causa raiz |
+| 05 | Refatoração | Mudanças mecânicas, em escala |
+| 06 | Memória de projeto | Ensinando as regras do seu time |
+| 07 | Acelerador | Não substituto |
 
----
+O PDF é **gerado por código** — `python ebook/src/gerar_ebook.py` produz as 22
+páginas a partir de um script versionado, sem PowerPoint no caminho.
 
-## Prompts utilizados
-
-Cada arquivo documenta o prompt real enviado à IA e o resultado obtido naquela etapa:
+### Prompts usados na produção do e-book
 
 | Etapa | Arquivo |
 | --- | --- |
-| 1. Definição do assunto | [`prompts/01-definicao-assunto.md`](./prompts/01-definicao-assunto.md) |
-| 2. Título e headline | [`prompts/02-titulo-headline.md`](./prompts/02-titulo-headline.md) |
-| 3. Imagem de capa | [`prompts/03-imagem-capa.md`](./prompts/03-imagem-capa.md) |
-| 4. Blocos do artigo | [`prompts/04-blocos-artigo.md`](./prompts/04-blocos-artigo.md) |
-| 5. Call to action | [`prompts/05-call-to-action.md`](./prompts/05-call-to-action.md) |
+| 1. Tema e público | [`01-definicao-tema-publico.md`](./prompts/ebook/01-definicao-tema-publico.md) |
+| 2. Título poderoso | [`02-titulo-poderoso.md`](./prompts/ebook/02-titulo-poderoso.md) |
+| 3. Capa | [`03-capa.md`](./prompts/ebook/03-capa.md) |
+| 4. Estrutura de capítulos | [`04-estrutura-capitulos.md`](./prompts/ebook/04-estrutura-capitulos.md) |
+| 5. Conteúdo dos capítulos | [`05-conteudo-capitulos.md`](./prompts/ebook/05-conteudo-capitulos.md) |
+| 6. Blocos de código | [`06-blocos-de-codigo.md`](./prompts/ebook/06-blocos-de-codigo.md) |
+| 7. Diagramação e regra dos 8 | [`07-diagramacao-regra-8.md`](./prompts/ebook/07-diagramacao-regra-8.md) |
+| 8. Post do LinkedIn | [`08-post-linkedin.md`](./prompts/ebook/08-post-linkedin.md) |
+
+**Repositório de referência do expert:**
+https://github.com/felipeAguiarCode/prompts-recipe-to-create-a-ebook
 
 ---
 
-## Imagens geradas
+## 📄 Artigo — *Claude: como a IA da Anthropic está acelerando o dia a dia dos desenvolvedores*
 
-| Arquivo | Descrição |
+> **[Ler o artigo](./artigo/claude-acelerador-de-devs.md)**
+
+![Capa do artigo](./imagens/capa-claude-devs.png)
+
+De assistente de chat a parceiro de codificação: como o Claude saiu do uso via
+chat e passou a atuar como agente dentro do fluxo de trabalho de times de
+engenharia — lendo repositórios, editando arquivos e executando comandos.
+
+> O artigo não foi publicado em plataforma externa — ele vive neste repositório.
+
+**Checklist do desafio:** definir o assunto ✅ · headline ✅ · imagem de capa ✅ ·
+blocos do artigo ✅ · call to action ✅
+
+### Prompts usados na produção do artigo
+
+| Etapa | Arquivo |
 | --- | --- |
-| [`imagens/capa-claude-devs.png`](./imagens/capa-claude-devs.png) | Capa do artigo — 1280×720, tema escuro com terminal simulando uma sessão do Claude Code |
-| [`imagens/gerar-capa.py`](./imagens/gerar-capa.py) | Script que gera a capa (`python imagens/gerar-capa.py`) |
+| 1. Definição do assunto | [`01-definicao-assunto.md`](./prompts/01-definicao-assunto.md) |
+| 2. Título e headline | [`02-titulo-headline.md`](./prompts/02-titulo-headline.md) |
+| 3. Imagem de capa | [`03-imagem-capa.md`](./prompts/03-imagem-capa.md) |
+| 4. Blocos do artigo | [`04-blocos-artigo.md`](./prompts/04-blocos-artigo.md) |
+| 5. Call to action | [`05-call-to-action.md`](./prompts/05-call-to-action.md) |
 
-A capa foi **desenhada por código** com Python + Pillow, e não gerada por um modelo de
-difusão. Os detalhes da composição estão em [`prompts/03-imagem-capa.md`](./prompts/03-imagem-capa.md).
+**Repositório de referência do expert:**
+https://github.com/felipeAguiarCode/prompts-for-article-generate-by-ia
 
 ---
 
-## Tecnologias e ferramentas usadas
+## Sobre as capas
 
-| Ferramenta | Uso no projeto |
+As duas capas foram **desenhadas por código**, com Python + Pillow — não geradas
+por modelo de difusão. A decisão e o prompt de referência do MidJourney estão
+documentados em [`prompts/ebook/03-capa.md`](./prompts/ebook/03-capa.md).
+
+```bash
+pip install pillow
+python imagens/gerar-capa.py        # capa do artigo
+python ebook/src/gerar_ebook.py     # e-book completo + capa
+```
+
+---
+
+## Ferramentas usadas
+
+| Ferramenta | Uso |
 | --- | --- |
-| **Claude (Anthropic)** | Via Claude Code: estruturação do repositório, documentação dos prompts e criação da capa |
-| **Python 3.12 + Pillow** | Renderização da imagem de capa |
-| **ChatGPT** | Redação inicial do texto do artigo |
+| **Claude (Anthropic)** | Estruturação do conteúdo, documentação dos prompts e geração das artes |
+| **ChatGPT** | Redação inicial dos textos |
+| **Python 3.12 + Pillow** | Renderização das capas e diagramação do e-book |
 
 ---
 
@@ -84,21 +109,23 @@ difusão. Os detalhes da composição estão em [`prompts/03-imagem-capa.md`](./
 
 ```
 .
-├── artigo/
-│   └── claude-acelerador-de-devs.md   # o artigo
+├── ebook/                             # 📕 desafio do e-book
+│   ├── o-dev-aumentado.pdf            #    o e-book (22 páginas)
+│   ├── capa-ebook.png
+│   ├── README.md
+│   └── src/                           #    gerador: conteúdo + layout + montagem
+├── artigo/                            # 📄 desafio do artigo
+│   └── claude-acelerador-de-devs.md
 ├── imagens/
-│   ├── capa-claude-devs.png           # capa gerada
-│   └── gerar-capa.py                  # script que gera a capa
-├── prompts/                           # prompts de cada etapa
-│   ├── 01-definicao-assunto.md
-│   ├── 02-titulo-headline.md
-│   ├── 03-imagem-capa.md
-│   ├── 04-blocos-artigo.md
-│   └── 05-call-to-action.md
+│   ├── capa-claude-devs.png
+│   └── gerar-capa.py
+├── prompts/
+│   ├── 01..05-*.md                    #    prompts do artigo
+│   └── ebook/01..08-*.md              #    prompts do e-book
 ├── server/                            # API Node + OpenAI (desafio anterior)
 └── web/                               # front-end React (desafio anterior)
 ```
 
 ---
 
-*Projeto desenvolvido como parte do desafio "Gerando Artigos com Inteligência Artificial" da [DIO](https://www.dio.me).*
+*Projetos desenvolvidos como desafios da [DIO](https://www.dio.me) — Formação ChatGPT for Devs.*

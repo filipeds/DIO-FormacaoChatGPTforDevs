@@ -5,3 +5,7 @@ __pycache__/
 
 # Transcrições das aulas (material de estudo local, não versionado)
 transcricoes/
+
+# Intermediários da pipeline do podcast (voz crua, voz normalizada, trilha).
+# O entregável é o mp3 final, que fica versionado.
+podcast/output/_trabalho/

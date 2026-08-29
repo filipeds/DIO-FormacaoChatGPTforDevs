@@ -1,11 +1,45 @@
 # DIO — Formação ChatGPT for Devs
 
 Desafios de projeto da [DIO](https://www.dio.me) sobre uso de IA generativa na
-produção de conteúdo técnico. Dois desafios, o mesmo tema, formatos diferentes:
-um **artigo** e um **e-book** sobre IA agêntica na geração de código.
+produção de conteúdo técnico. Três desafios, o mesmo tema, formatos diferentes:
+um **artigo**, um **e-book** e um **podcast** sobre IA agêntica na geração de código.
 
-Em ambos, a IA foi usada como **aceleradora** de um conteúdo que já existia — e o
+Nos três, a IA foi usada como **aceleradora** de um conteúdo que já existia — e o
 resultado passou por edição humana antes de virar entregável.
+
+---
+
+## 🎙️ Podcast — *O Segundo Par de Mãos*
+
+**o podcast de quem programa acompanhado** · episódio 01, 4 min 20 s
+
+> **[Ouvir o episódio (mp3)](./podcast/output/podcast-editado.mp3)** ·
+> [Sobre o podcast](./podcast/README.md) ·
+> [Ler o roteiro](./podcast/roteiro/ep01-o-que-muda-quando-a-ia-executa.md)
+
+![Capa do podcast](./podcast/capa-podcast.png)
+
+*O que muda quando a IA executa* — a diferença entre uma inteligência artificial
+que sugere e uma que executa, e o que isso muda na rotina de quem programa.
+
+O episódio é **gerado por código**: `python podcast/src/gerar_podcast.py` produz
+narração, trilha, mixagem e capa. A trilha lo-fi é sintetizada com numpy — livre de
+direitos por construção — e a mixagem em ffmpeg faz a música recuar sozinha quando
+a voz entra, algo que o passo a passo manual do módulo não faz.
+
+### Prompts usados na produção do podcast
+
+| Etapa | Arquivo | Conceito |
+| --- | --- | --- |
+| 1. Nicho e estratégia | [`01-nicho-e-estrategia.md`](./prompts/podcast/01-nicho-e-estrategia.md) | Posicionamento |
+| 2. Nome do podcast | [`02-nome-do-podcast.md`](./prompts/podcast/02-nome-do-podcast.md) | Regras negativas |
+| 3. Capa | [`03-capa.md`](./prompts/podcast/03-capa.md) | Prompt de imagem |
+| 4. Roteiro | [`04-roteiro-do-episodio.md`](./prompts/podcast/04-roteiro-do-episodio.md) | Variáveis / blocos |
+| 5. Narração | [`05-narracao.md`](./prompts/podcast/05-narracao.md) | Síntese de voz |
+| 6. Edição e publicação | [`06-edicao-e-publicacao.md`](./prompts/podcast/06-edicao-e-publicacao.md) | Mixagem |
+
+**Repositório de referência do expert:**
+https://github.com/felipeAguiarCode/prompts-for-podcast-generate-by-ia
 
 ---
 
@@ -91,6 +125,7 @@ documentados em [`prompts/ebook/03-capa.md`](./prompts/ebook/03-capa.md).
 pip install pillow
 python imagens/gerar-capa.py        # capa do artigo
 python ebook/src/gerar_ebook.py     # e-book completo + capa
+python podcast/src/capa.py          # capa do podcast
 ```
 
 ---
@@ -102,6 +137,8 @@ python ebook/src/gerar_ebook.py     # e-book completo + capa
 | **Claude (Anthropic)** | Estruturação do conteúdo, documentação dos prompts e geração das artes |
 | **ChatGPT** | Redação inicial dos textos |
 | **Python 3.12 + Pillow** | Renderização das capas e diagramação do e-book |
+| **edge-tts** | Narração do podcast com voz neural pt-BR |
+| **numpy + ffmpeg** | Trilha sonora sintetizada e mixagem do episódio |
 
 ---
 
@@ -116,12 +153,19 @@ python ebook/src/gerar_ebook.py     # e-book completo + capa
 │   └── src/                           #    gerador: conteúdo + layout + montagem
 ├── artigo/                            # 📄 desafio do artigo
 │   └── claude-acelerador-de-devs.md
+├── podcast/                           # 🎙️ desafio do podcast
+│   ├── output/podcast-editado.mp3     #    o episódio (4 min 20 s)
+│   ├── capa-podcast.png
+│   ├── roteiro/
+│   ├── README.md
+│   └── src/                           #    gerador: roteiro → voz → trilha → mix
 ├── imagens/
 │   ├── capa-claude-devs.png
 │   └── gerar-capa.py
 ├── prompts/
 │   ├── 01..05-*.md                    #    prompts do artigo
-│   └── ebook/01..08-*.md              #    prompts do e-book
+│   ├── ebook/01..08-*.md              #    prompts do e-book
+│   └── podcast/01..06-*.md            #    prompts do podcast
 ├── server/                            # API Node + OpenAI (desafio anterior)
 └── web/                               # front-end React (desafio anterior)
 ```

@@ -12,6 +12,7 @@ Requisitos: Pillow e as fontes Segoe UI / Consolas (padrão no Windows).
 """
 import os
 import sys
+import time
 
 from PIL import Image, ImageDraw
 
@@ -23,6 +24,11 @@ import layout as L              # noqa: E402
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF = os.path.join(RAIZ, "o-dev-aumentado.pdf")
 CAPA_PNG = os.path.join(RAIZ, "capa-ebook.png")
+
+# Data de publicação fixa. Sem isso o Pillow carimba a hora atual nos metadados
+# do PDF, e cada execução geraria um arquivo diferente — o que sujaria o diff do
+# Git sem que uma linha de conteúdo tivesse mudado.
+DATA_PUBLICACAO = time.strptime("2026-08-28", "%Y-%m-%d")
 
 _avisos = []
 
@@ -281,7 +287,9 @@ def main():
 
     paginas[0].save(CAPA_PNG, "PNG", optimize=True)
     paginas[0].save(PDF, "PDF", save_all=True, append_images=paginas[1:],
-                    resolution=150.0, title=C.TITULO, author=C.AUTOR)
+                    resolution=150.0, title=C.TITULO, author=C.AUTOR,
+                    subject=C.SUBTITULO,
+                    creationDate=DATA_PUBLICACAO, modDate=DATA_PUBLICACAO)
 
     print(f"e-book gerado: {PDF}")
     print(f"capa gerada:   {CAPA_PNG}")
